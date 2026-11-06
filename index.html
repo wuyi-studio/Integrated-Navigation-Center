@@ -400,6 +400,10 @@
     .card-print .badge-category { background: var(--color-print-bg); color: var(--color-print); }
     .card-print .btn-primary { background: #0f766e; }
     .card-print .btn-primary:hover { background: #115e59; }
+    .card-reply .card-icon { background: #f3e8ff; color: #7e22ce; }
+    .card-reply .badge-category { background: #f3e8ff; color: #7e22ce; }
+    .card-reply .btn-primary { background: #7e22ce; }
+    .card-reply .btn-primary:hover { background: #6b21a8; }
 
     /* 櫃檯輔助工具面板 (交接備忘錄) */
     .counter-tools-section {
@@ -877,6 +881,32 @@
           </button>
         </div>
       </div>
+      <!-- 8. 常用回覆與報價小幫手 (快捷鍵 8) -->
+      <div class="card card-reply" data-index="8">
+        <div class="card-top">
+          <div class="card-icon">💬</div>
+          <div class="card-header-info">
+            <div class="card-tags">
+              <span class="badge-category">常用回覆</span>
+              <span class="badge-hotkey">快捷鍵 8</span>
+            </div>
+            <h2 class="card-title">常用回覆與報價小幫手</h2>
+          </div>
+        </div>
+        <p class="card-desc">LINE 官方帳號常用回覆與報價範本，一鍵複製貼上，回覆顧客更快更一致。</p>
+        <div class="card-actions">
+          <a href="https://wuyi-studio.github.io/Quick-reply/" class="btn-primary app-link" data-url="https://wuyi-studio.github.io/Quick-reply/">
+            <span>前往常用回覆</span>
+            <span>➔</span>
+          </a>
+          <button class="btn-tool" onclick="copyLink('https://wuyi-studio.github.io/Quick-reply/', '常用回覆與報價小幫手')">
+            📋 複製
+          </button>
+          <button class="btn-tool" onclick="openQrModal('常用回覆與報價小幫手', 'https://wuyi-studio.github.io/Quick-reply/')">
+            📱 QR Code
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- 櫃檯實用交接備忘錄 -->
@@ -921,7 +951,7 @@
   </footer>
 
   <script>
-    // 網址清單對應快捷鍵 1~7（精準支援鍵盤快速鍵）
+    // 網址清單對應快捷鍵 1~8（精準支援鍵盤快速鍵）
     const linksByIndex = {
       '1': 'https://wuyi-studio.github.io/wuyi-cashier/',          // 1. 櫃檯快速結帳系統
       '2': 'https://wuyi-studio.github.io/wuyi-flower2/',          // 2. 門市花束預訂系統
@@ -929,7 +959,8 @@
       '4': 'https://wuyi-studio.github.io/wuyi-order/',             // 4. 蛋糕訂購
       '5': 'https://wuyi-studio.github.io/wuyi-cakethisweek/',      // 5. 當週公版蛋糕
       '6': 'https://wuyi-studio.github.io/wuyi-quote-calculator/',   // 6. 訂單報價小幫手
-      '7': 'https://wuyi-studio.github.io/Daily-Memo-to-PDF-print/' // 7. 每日備忘轉 PDF 列印
+      '7': 'https://wuyi-studio.github.io/Daily-Memo-to-PDF-print/', // 7. 每日備忘轉 PDF 列印
+      '8': 'https://wuyi-studio.github.io/Quick-reply/'                // 8. 常用回覆與報價小幫手
     };
 
     // 另開分頁設定管理
@@ -957,7 +988,7 @@
     updateLinkTargets();
     openNewTabCheckbox.addEventListener('change', updateLinkTargets);
 
-    // 鍵盤數字快捷鍵 1~7
+    // 鍵盤數字快捷鍵 1~8
     window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('qrModalBackdrop');
       const isModalOpen = modal.classList.contains('show');
