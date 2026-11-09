@@ -35,6 +35,10 @@
       --color-quote-bg: #f0f9ff;
       --color-print: #0f766e;
       --color-print-bg: #f0fdfa;
+      --color-reply: #7e22ce;
+      --color-reply-bg: #f3e8ff;
+      --color-helper: #ea580c;
+      --color-helper-bg: #fff7ed;
     }
 
     * {
@@ -400,10 +404,16 @@
     .card-print .badge-category { background: var(--color-print-bg); color: var(--color-print); }
     .card-print .btn-primary { background: #0f766e; }
     .card-print .btn-primary:hover { background: #115e59; }
+
     .card-reply .card-icon { background: #f3e8ff; color: #7e22ce; }
     .card-reply .badge-category { background: #f3e8ff; color: #7e22ce; }
     .card-reply .btn-primary { background: #7e22ce; }
     .card-reply .btn-primary:hover { background: #6b21a8; }
+
+    .card-helper .card-icon { background: var(--color-helper-bg); color: var(--color-helper); }
+    .card-helper .badge-category { background: var(--color-helper-bg); color: var(--color-helper); }
+    .card-helper .btn-primary { background: #ea580c; }
+    .card-helper .btn-primary:hover { background: #c2410c; }
 
     /* 櫃檯輔助工具面板 (交接備忘錄) */
     .counter-tools-section {
@@ -662,7 +672,7 @@
     <!-- 櫃檯操作小提示 -->
     <div class="quick-tip-banner">
       <div>
-        💡 <strong>櫃檯快捷操作：</strong>鍵盤按數字鍵 <kbd>1</kbd> ~ <kbd>7</kbd> 秒開系統；點擊<strong>「QR Code」</strong>可展示給現場客人手機掃碼。
+        💡 <strong>櫃檯快捷操作：</strong>鍵盤按數字鍵 <kbd>1</kbd> ~ <kbd>9</kbd> 秒開系統；點擊<strong>「QR Code」</strong>可展示給現場客人手機掃碼。
       </div>
     </div>
 
@@ -881,6 +891,7 @@
           </button>
         </div>
       </div>
+
       <!-- 8. 常用回覆與報價小幫手 (快捷鍵 8) -->
       <div class="card card-reply" data-index="8">
         <div class="card-top">
@@ -903,6 +914,33 @@
             📋 複製
           </button>
           <button class="btn-tool" onclick="openQrModal('常用回覆與報價小幫手', 'https://wuyi-studio.github.io/Quick-reply/')">
+            📱 QR Code
+          </button>
+        </div>
+      </div>
+
+      <!-- 9. 梧藝下單小幫手 (快捷鍵 9) -->
+      <div class="card card-helper" data-index="9">
+        <div class="card-top">
+          <div class="card-icon">🛍️</div>
+          <div class="card-header-info">
+            <div class="card-tags">
+              <span class="badge-category">客服下單</span>
+              <span class="badge-hotkey">快捷鍵 9</span>
+            </div>
+            <h2 class="card-title">梧藝下單小幫手</h2>
+          </div>
+        </div>
+        <p class="card-desc">LINE 官方帳號客服下單小幫手，一鍵抓取訂單文字、合成取貨確認小卡、格式化備忘錄與試算表同步。</p>
+        <div class="card-actions">
+          <a href="https://wuyi-studio.github.io/wuyi-order-helper/" class="btn-primary app-link" data-url="https://wuyi-studio.github.io/wuyi-order-helper/">
+            <span>前往下單小幫手</span>
+            <span>➔</span>
+          </a>
+          <button class="btn-tool" onclick="copyLink('https://wuyi-studio.github.io/wuyi-order-helper/', '梧藝下單小幫手')">
+            📋 複製
+          </button>
+          <button class="btn-tool" onclick="openQrModal('梧藝下單小幫手', 'https://wuyi-studio.github.io/wuyi-order-helper/')">
             📱 QR Code
           </button>
         </div>
@@ -951,7 +989,7 @@
   </footer>
 
   <script>
-    // 網址清單對應快捷鍵 1~8（精準支援鍵盤快速鍵）
+    // 網址清單對應快捷鍵 1~9（精準支援鍵盤快速鍵）
     const linksByIndex = {
       '1': 'https://wuyi-studio.github.io/wuyi-cashier/',          // 1. 櫃檯快速結帳系統
       '2': 'https://wuyi-studio.github.io/wuyi-flower2/',          // 2. 門市花束預訂系統
@@ -960,7 +998,8 @@
       '5': 'https://wuyi-studio.github.io/wuyi-cakethisweek/',      // 5. 當週公版蛋糕
       '6': 'https://wuyi-studio.github.io/wuyi-quote-calculator/',   // 6. 訂單報價小幫手
       '7': 'https://wuyi-studio.github.io/Daily-Memo-to-PDF-print/', // 7. 每日備忘轉 PDF 列印
-      '8': 'https://wuyi-studio.github.io/Quick-reply/'                // 8. 常用回覆與報價小幫手
+      '8': 'https://wuyi-studio.github.io/Quick-reply/',            // 8. 常用回覆與報價小幫手
+      '9': 'https://wuyi-studio.github.io/wuyi-order-helper/'       // 9. 梧藝下單小幫手
     };
 
     // 另開分頁設定管理
@@ -988,7 +1027,7 @@
     updateLinkTargets();
     openNewTabCheckbox.addEventListener('change', updateLinkTargets);
 
-    // 鍵盤數字快捷鍵 1~8
+    // 鍵盤數字快捷鍵 1~9
     window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('qrModalBackdrop');
       const isModalOpen = modal.classList.contains('show');
