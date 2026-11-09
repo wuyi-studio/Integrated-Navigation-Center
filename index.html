@@ -39,6 +39,8 @@
       --color-reply-bg: #f3e8ff;
       --color-helper: #ea580c;
       --color-helper-bg: #fff7ed;
+      --color-photo: #4f46e5;
+      --color-photo-bg: #eef2ff;
     }
 
     * {
@@ -414,6 +416,11 @@
     .card-helper .badge-category { background: var(--color-helper-bg); color: var(--color-helper); }
     .card-helper .btn-primary { background: #ea580c; }
     .card-helper .btn-primary:hover { background: #c2410c; }
+
+    .card-photo .card-icon { background: var(--color-photo-bg); color: var(--color-photo); }
+    .card-photo .badge-category { background: var(--color-photo-bg); color: var(--color-photo); }
+    .card-photo .btn-primary { background: #4f46e5; }
+    .card-photo .btn-primary:hover { background: #4338ca; }
 
     /* 櫃檯輔助工具面板 (交接備忘錄) */
     .counter-tools-section {
@@ -941,6 +948,32 @@
             📋 複製
           </button>
           <button class="btn-tool" onclick="openQrModal('梧藝下單小幫手', 'https://wuyi-studio.github.io/wuyi-order-helper/')">
+            📱 QR Code
+          </button>
+        </div>
+      </div>
+
+      <!-- 作品相片智慧整理工具 (免快捷鍵) -->
+      <div class="card card-photo">
+        <div class="card-top">
+          <div class="card-icon">📸</div>
+          <div class="card-header-info">
+            <div class="card-tags">
+              <span class="badge-category">相片整理</span>
+            </div>
+            <h2 class="card-title">作品相片智慧整理工具</h2>
+          </div>
+        </div>
+        <p class="card-desc">花藝與甜點作品攝影智慧整理、AI 分類辨識、年份自動歸檔與 Finder 顏色標籤寫入管理工作站。</p>
+        <div class="card-actions">
+          <a href="https://github.com/wuyi-studio/rename-photos" class="btn-primary app-link" data-url="https://github.com/wuyi-studio/rename-photos">
+            <span>前往專案</span>
+            <span>➔</span>
+          </a>
+          <button class="btn-tool" onclick="copyLink('https://github.com/wuyi-studio/rename-photos', '作品相片智慧整理工具')">
+            📋 複製
+          </button>
+          <button class="btn-tool" onclick="openQrModal('作品相片智慧整理工具', 'https://github.com/wuyi-studio/rename-photos')">
             📱 QR Code
           </button>
         </div>
